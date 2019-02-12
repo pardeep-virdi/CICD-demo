@@ -1,7 +1,8 @@
 node {
 
 stage('Clone sources') {
-        git branch: 'pipeline', url: 'https://github.com/pardeep-virdi/config-server.git'
+       // git branch: 'pipeline', url: 'https://github.com/pardeep-virdi/config-server.git'
+     checkout([$class: 'GitSCM', branches: [[name: '*/pipeline']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/pardeep-virdi/CICD-demo.git']]])
     }
     
     
