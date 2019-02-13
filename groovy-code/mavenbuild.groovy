@@ -10,17 +10,17 @@ stage('Maven build') {
         sh 'mvn clean  install' 
     }
 
-stage('build docker image') {
+//stage('build docker image') {
     
-    docker.withRegistry('', 'mydockerid') {
+//    docker.withRegistry('', 'mydockerid') {
     
-    def dockerfile = 'dockerfile'
-    def customImage = docker.build("pardeepvirdi/maven-project:${env.BUILD_ID}", "-f src/main/docker/${dockerfile} . ") 
+ //   def dockerfile = 'dockerfile'
+  //  def customImage = docker.build("pardeepvirdi/maven-project:${env.BUILD_ID}", "-f src/main/docker/${dockerfile} . ") 
     
-    customImage.push()
+   // customImage.push()
      
-    }
+   // }
     
-}
+//}
     
    }
