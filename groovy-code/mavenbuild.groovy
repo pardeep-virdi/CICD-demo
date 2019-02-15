@@ -22,5 +22,12 @@ stage('build docker image') {
     }
     
 }
-    
+ 
+ stage('deploy on kubernetes') {    
+   withKubeConfig([credentialsId: "mykube", serverUrl: "10.142.0.2:6443"]) {
+        
+           sh "kubectl -n default get nodes"
+
+        }    
+ }
    }
