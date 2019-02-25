@@ -9,7 +9,7 @@ stage('Clone sources') {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'LocalSonarScanner';
     withSonarQubeEnv('localsonar') {
-      sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties"
+      sh "${scannerHome}/bin/sonar-scanner  -Dsonar.projectKey=java-sonar-runner-simple   -Dsonar.sources=./src/ -Dproject.settings=sonar-project.properties"
     }
   }
        
