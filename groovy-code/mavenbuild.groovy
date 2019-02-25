@@ -5,7 +5,14 @@ stage('Clone sources') {
      checkout([$class: 'GitSCM', branches: [[name: '*/pipeline']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/pardeep-virdi/config-server.git']]])
     }
     
-    
+      stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'LocalSonarScanner';
+    withSonarQubeEnv('My SonarQube Server') {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
+       
 stage('Maven build') {
         sh 'mvn clean  install' 
     }
