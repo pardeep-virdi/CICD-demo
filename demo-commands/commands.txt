@@ -6,5 +6,5 @@ yum install java-1.8.0-openjdk-devel
   rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
    yum install jenkins -Y
    systemctl start jenkins
-   cat /var/lib/jenkins/secrets/initialAdminPassword
+   cat /var/lib/jenkins/secrets/initialAdminPassword  or root@3dcda4b6f99d:/# cat /var/jenkins_home/secrets/initialAdminPassword
    yum install git -Y
